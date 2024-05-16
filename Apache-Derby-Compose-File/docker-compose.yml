@@ -1,0 +1,38 @@
+# compose file for derby container
+# 
+#
+name: "apache-derby"
+
+networks:
+  derby_net:
+    driver: bridge
+    external: false
+  radiant-bridge:
+    driver: bridge
+    external: true
+
+services:
+  server:
+    image: AnilK-Sharma/derby:${DERBY_VERSION}-arm64
+    container_name: derby
+    hostname: myderby
+    environment:
+      DERBY_VERSION: ${DERBY_VERSION}
+      CLIENT_PORT: "1527"
+      DERBY_HOME: ${DERBY_HOME}
+    networks:
+      - derby_net
+      - radiant-bridge
+    volumes:
+        - derby-vol:/opt/apache/derby
+        - derby-data:/opt/apache/derbydata
+    ports:
+        - "31527:1527"
+        - "3222:22"
+volumes:
+  derby-vol:
+    name: "apache_derby-10-17-vol"
+  derby-data:
+    name: "apache-derby-data"
+
+ 

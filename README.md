@@ -6,6 +6,6 @@ This Project has two components
 
 The process of building linux/arm64 images using `docker buildx` to build Apache Derby 10.17 container image requires OpenJDK 21 or higher
 
-Please see the respective `readme.MD` files.
+Please see the respective `readme.MD` files for details on the two components. For details and documentation on Apache Derby, please see the office Apache Derby site: https://db.apache.org/derby/index.html. 
 
 
